@@ -31,7 +31,7 @@ const BattleOfMonsters = () => {
 
   useEffect(() => {
     dispatch(fetchMonstersData());
-  }, []);
+  }, [dispatch]);
 
   const handleStartBattleClick = () => {
     dispatch(
