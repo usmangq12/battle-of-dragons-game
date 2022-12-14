@@ -15,9 +15,13 @@ import {
 
 type MonstersListProps = {
   monsters: Monster[];
+  setHideMessage: any;
 };
 
-const MonstersList: React.FC<MonstersListProps> = ({ monsters }) => {
+const MonstersList: React.FC<MonstersListProps> = ({
+  monsters,
+  setHideMessage,
+}) => {
   const dispatch = useAppDispatch();
 
   const [selectedMonsterId, setSelectedMonsterId] = useState<string | null>(
@@ -34,6 +38,7 @@ const MonstersList: React.FC<MonstersListProps> = ({ monsters }) => {
     dispatch(
       setSelectedComputerMonster(!value ? null : randomSelectedComputerMonster),
     );
+    setHideMessage(false);
   };
 
   return (
