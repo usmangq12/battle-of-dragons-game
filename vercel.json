@@ -1,4 +1,5 @@
-{ "version":2,
+{
+    "version": 2,
     "builds": [
         {
             "src": "data/server.js",
@@ -7,8 +8,14 @@
     ],
     "routes": [
         {
-          "src": "/(.*)",
-          "dest": "data/server.js"
+            "src": "/(.*)",
+            "dest": "data/server.js",
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE"
+            ]
         }
     ]
-  }
+}
