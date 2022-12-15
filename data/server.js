@@ -1,6 +1,6 @@
 const jsonServer = require('json-server');
 const server = jsonServer.create();
-const router = jsonServer.router('db.json');
+const router = jsonServer.router('../db.json');
 const middlewares = jsonServer.defaults();
 const data = require('./monsters.json');
 
@@ -17,7 +17,7 @@ server.get('/monsters', (req, res) => {
   res.jsonp(data.monsters);
 });
 
-server.get('/battle', (req, res) => {
+server.post('/battle', (req, res) => {
   const { monster1Id, monster2Id } = req.body;
 
   if (!monster1Id || !monster2Id) {
