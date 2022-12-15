@@ -17,7 +17,7 @@ server.get('/monsters', (req, res) => {
   res.jsonp(data.monsters);
 });
 
-server.post('/battle', (req, res) => {
+server.get('/battle', (req, res) => {
   const { monster1Id, monster2Id } = req.body;
 
   if (!monster1Id || !monster2Id) {

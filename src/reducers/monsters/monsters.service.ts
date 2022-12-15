@@ -12,7 +12,7 @@ const postMonsterBattleData = async (
   data: IPostWinningMonsterData,
 ): Promise<WinningMonster> => {
   const requestOptions = {
-    method: 'POST',
+    method: 'GET',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
