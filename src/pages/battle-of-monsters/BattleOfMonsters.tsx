@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../app/hooks';
 import { MessageBox } from '../../components/message-box/MessageBox';
@@ -31,7 +31,7 @@ const BattleOfMonsters = () => {
 
   useEffect(() => {
     dispatch(fetchMonstersData());
-  }, []);
+  }, [dispatch]);
 
   const handleStartBattleClick = () => {
     dispatch(
@@ -41,11 +41,9 @@ const BattleOfMonsters = () => {
       }),
     );
   };
-
   return (
     <PageContainer>
       <Title>Battle of Monsters</Title>
-
       <MonstersList monsters={monsters} />
 
       {winningMonster?.winner.name && (

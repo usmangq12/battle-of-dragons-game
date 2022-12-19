@@ -4,6 +4,7 @@ import { Monster } from '../../models/interfaces/monster.interface';
 import {
   setSelectedMonster,
   setSelectedComputerMonster,
+  setWinningMonster,
 } from '../../reducers/monsters/monsters.actions';
 import {
   Image,
@@ -34,6 +35,7 @@ const MonstersList: React.FC<MonstersListProps> = ({ monsters }) => {
     dispatch(
       setSelectedComputerMonster(!value ? null : randomSelectedComputerMonster),
     );
+    dispatch(setWinningMonster(null));
   };
 
   return (
