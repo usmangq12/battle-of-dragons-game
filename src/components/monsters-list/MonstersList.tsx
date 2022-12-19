@@ -4,6 +4,7 @@ import { Monster } from '../../models/interfaces/monster.interface';
 import {
   setSelectedMonster,
   setSelectedComputerMonster,
+  setWinningMonster,
 } from '../../reducers/monsters/monsters.actions';
 import {
   Image,
@@ -15,13 +16,9 @@ import {
 
 type MonstersListProps = {
   monsters: Monster[];
-  setHideMessage: any;
 };
 
-const MonstersList: React.FC<MonstersListProps> = ({
-  monsters,
-  setHideMessage,
-}) => {
+const MonstersList: React.FC<MonstersListProps> = ({ monsters }) => {
   const dispatch = useAppDispatch();
 
   const [selectedMonsterId, setSelectedMonsterId] = useState<string | null>(
@@ -38,7 +35,7 @@ const MonstersList: React.FC<MonstersListProps> = ({
     dispatch(
       setSelectedComputerMonster(!value ? null : randomSelectedComputerMonster),
     );
-    setHideMessage(false);
+    dispatch(setWinningMonster(null));
   };
 
   return (

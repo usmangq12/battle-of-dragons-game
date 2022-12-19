@@ -28,7 +28,6 @@ const BattleOfMonsters = () => {
   const selectedMonster = useSelector(selectSelectedMonster);
   const selectedComputerMonster = useSelector(selectSelectedComputerMonster);
   const winningMonster = useSelector(selectWinningMonster);
-  const [hideMessage, setHideMessage] = useState(false);
 
   useEffect(() => {
     dispatch(fetchMonstersData());
@@ -41,20 +40,14 @@ const BattleOfMonsters = () => {
         monster2Id: selectedComputerMonster?.id,
       }),
     );
-    setHideMessage(true);
   };
   return (
     <PageContainer>
       <Title>Battle of Monsters</Title>
-      <MonstersList monsters={monsters} setHideMessage={setHideMessage} />
-      {hideMessage ? (
-        <div>
-          {winningMonster?.winner.name && (
-            <MessageBox text={winningMonster?.winner.name} />
-          )}
-        </div>
-      ) : (
-        <div></div>
+      <MonstersList monsters={monsters} />
+
+      {winningMonster?.winner.name && (
+        <MessageBox text={winningMonster?.winner.name} />
       )}
 
       <BattleSection>

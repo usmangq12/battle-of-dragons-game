@@ -5,10 +5,9 @@ import { MonstersList } from './MonstersList';
 import monstersData from '../../../data/monsters.json';
 
 const monstersListFactory = (data = monstersData.monsters) => {
-  let setHideMessage: any;
   render(
     <Provider store={store}>
-      <MonstersList setHideMessage={setHideMessage} monsters={data} />
+      <MonstersList monsters={data} />
     </Provider>,
   );
 };
